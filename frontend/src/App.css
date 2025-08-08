@@ -1,0 +1,85 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  padding: 20px;
+  color: white;
+}
+
+.controls button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 10px;
+}
+
+main {
+  padding: 20px;
+}
+
+.loading {
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: left;
+}
+
+.transcription-section,
+.analysis-section,
+.wordcloud-section {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.analysis-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.analysis-item {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+.analysis-item.full-width {
+  grid-column: 1 / -1;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+/* --- THIS IS THE FINAL, DEFINITIVE FIX FOR WORD CLOUD ALIGNMENT --- */
+
+.wordcloud-section {
+  /* Set a fixed height for the container */
+  height: 400px;
+  /* This is crucial: it becomes the positioning anchor for its child */
+  position: relative;
+}
+
+/* Remove the H2 from the positioning calculation */
+.wordcloud-section h2 {
+    text-align: center;
+    position: relative;
+    z-index: 10;
+}
+
+.wordcloud-section .wordcloud-wrapper {
+  /* Make the wrapper fill the entire parent box */
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
